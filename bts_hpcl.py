@@ -3,7 +3,7 @@ from selenium.webdriver.chrome.service  import Service
 from selenium.webdriver.common.keys     import Keys
 from selenium.webdriver.common.by       import By
 from webdriver_manager.chrome           import ChromeDriverManager
-servic = Service("chromedriver.exe")
+servic = Service("drivers/chromedriver.exe")
 option = webdriver.ChromeOptions()
 option.add_experimental_option("detach",True)
 driver = webdriver.Chrome(service=servic,options=option)
