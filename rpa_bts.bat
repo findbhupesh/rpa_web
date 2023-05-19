@@ -1,2 +1,2 @@
 call venv\scripts\activate
-py bts_bpcl.py 
+py rpa_bts.py %1
