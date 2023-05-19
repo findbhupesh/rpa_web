@@ -12,20 +12,20 @@ def open_browser():
     return driver
 
 def bpcl_url(driver):
-    driver.get("https://ebiz.bpc.co.in/VendorRegistration/Account")
-    driver.find_element(By.NAME,"UserName").send_keys("188373")
-    driver.find_element(By.NAME,"Password").send_keys("Test@123")
+    driver.get("https://econnect.bpcl.in/selfservice-ext/pub/login.html")
+    driver.find_element(By.ID,"principal").send_keys("VC157213")
+    driver.find_element(By.ID,"input_password").send_keys("Baldist@2223")
     #driver.find_element(By.NAME,"submit1").click()
 
 def iocl_url(driver):
     driver.get("https://associates.indianoil.co.in/BTS/vendor_login")
-    driver.find_element(By.NAME,"txtuserid").send_keys("188373")
-    driver.find_element(By.NAME,"txtpwd").send_keys("Test@123")
+    driver.find_element(By.NAME,"txtuserid").send_keys("11921208")
+    driver.find_element(By.NAME,"txtpwd").send_keys("396968")
 
 def hpcl_url(driver):
     driver.get("https://bills.hpcl.co.in/Vendor/index.jsp")
-    driver.find_element(By.NAME,"username").send_keys("188373")
-    driver.find_element(By.NAME,"password").send_keys("Test@123")
+    driver.find_element(By.NAME,"username").send_keys("28084998")
+    driver.find_element(By.NAME,"password").send_keys("balhpcl@18")
     #driver.find_element(By.NAME,"submit1").click()
 
 
