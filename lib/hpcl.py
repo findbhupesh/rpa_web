@@ -4,7 +4,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support    import expected_conditions as EC
 from lib                           import auto
 
-def upld_inv(web):
+def upld_inv(web,data):
     wait = WebDriverWait(web, 10)
     web.get("https://bills.hpcl.co.in/Vendor/index.jsp")
     auto.send_keys(web,"//input[@id='username']","28084998")
@@ -25,21 +25,21 @@ def upld_inv(web):
             break
   
     auto.click_btn(web,"//span[contains(@title,'Select Purchase Order')]")
-    auto.send_keys(web,"//input[@class='select2-search__field']",'22000197-OP-11350')
-    auto.click_btn(web,"//li[contains(@id,'22000197-OP-11350')]")
-    auto.send_keys(web,"//input[@id='bill_no']",'F22331337172')
+    auto.send_keys(web,"//input[@class='select2-search__field']",data['BSTNK'][:8])
+    auto.click_btn(web,"//li[contains(@id,'"+data['BSTNK'][:8]+"')]")
+    auto.send_keys(web,"//input[@id='bill_no']",data['XBLNR'])
     auto.click_btn(web,"//input[@id='bill_dt']")
-    auto.click_btn(web,"//a[contains(text(),'20')]")
-    auto.send_keys(web,"//input[@id='taxable_amt']",'2651400.00')
-    auto.send_keys(web,"//input[@id='tax_amt']",'132570.00')
-    auto.send_keys(web,"//input[@id='bill_amt']",'2783970.00')
+    auto.click_btn(web,"//a[contains(text(),'"+data['FKDAT'][-2:]+"')]")
+    auto.send_keys(web,"//input[@id='taxable_amt']",data['NETWR'])
+    auto.send_keys(web,"//input[@id='tax_amt']",data['MWSBK'])
+    auto.send_keys(web,"//input[@id='bill_amt']",data['WRBTR'])
     auto.click_btn(web,"//span[@id='select2-locnnm-container']")
-    auto.send_keys(web,"//input[@class='select2-search__field']","11588")
-    auto.click_btn(web,"//li[contains(text(),'11588')]")
+    auto.send_keys(web,"//input[@class='select2-search__field']",data['ABLAD'])
+    auto.click_btn(web,"//li[contains(text(),'"+data['ABLAD']+"')]")
     auto.click_btn(web,"//span[@id='select2-creator_mail-container']")
-    auto.click_btn(web,"//li[contains(@id,'30076000')]")
-    auto.send_keys(web,"//input[@id='scan_page']",'4')
-    auto.send_keys(web,"//input[@id='challan_no']",'0092741240')
+    auto.click_btn(web,"//li[contains(@id,'"+data['EMAIL']+"')]")
+    auto.send_keys(web,"//input[@id='scan_page']",data['ZCOPY'])
+    auto.send_keys(web,"//input[@id='challan_no']",data['CHNUM'])
     auto.send_keys(web,"//input[@id='digitalInvoiceFile']","C://temp/inv_0091908544.pdf")
     auto.send_keys(web,"//textarea[@id='creator_rem']","This is test remark")
     auto.click_btn(web,"//input[@id='chkk']")

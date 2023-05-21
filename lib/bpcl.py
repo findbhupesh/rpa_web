@@ -4,7 +4,7 @@ from selenium.webdriver.support.ui      import WebDriverWait
 from selenium.webdriver.support         import expected_conditions as EC
 from lib                                import auto
 
-def upld_inv(web):
+def upld_inv(web,data):
     wait = WebDriverWait(web, 10)
     web.get("https://econnect.bpcl.in/selfservice-ext/pub/login.html")
     auto.send_keys(web,"//input[@id='principal']","VC157213")

@@ -2,7 +2,7 @@ import time
 from selenium.webdriver.support.ui      import WebDriverWait
 from selenium.webdriver.support         import expected_conditions as EC
 from lib                                import auto
-def upld_inv(web):
+def upld_inv(web,data):
     web.get("https://associates.indianoil.co.in/BTS/vendor_login")
     auto.send_keys(web,"//input[@id='txtuserid']","11921208")
     auto.send_keys(web,"//input[@id='txtpwd']","396968")
