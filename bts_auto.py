@@ -1,18 +1,10 @@
 import sys,time
 from selenium                       import webdriver
 from selenium.webdriver.support.ui  import WebDriverWait
-from lib                            import bpcl,hpcl,iocl
+from lib                            import bpcl,hpcl,iocl,auto
 
-def open_browser():
-    option = webdriver.ChromeOptions()
-    option.add_experimental_option("detach",True)
-    option.add_argument("--start-maximized")
-    driver = webdriver.Chrome(options=option)
-    return driver
-
-driver = open_browser()
-driver.implicitly_wait(10)
-
+web = auto.open_browser()
+web.implicitly_wait(15)
 
 if  len(sys.argv) > 1:
     url = sys.argv[1]
@@ -21,9 +13,9 @@ else:
 
 match url:
     case 'BPCL':
-        bpcl.upld_inv(driver)
+        bpcl.upld_inv(web)
     case 'HPCL':
-        hpcl.upld_inv(driver)
+        hpcl.upld_inv(web)
     case 'IOCL':
-        iocl.upld_inv(driver)
+        iocl.upld_inv(web)
 
